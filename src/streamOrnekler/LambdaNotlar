@@ -1,0 +1,135 @@
+
+BİR STREAM NASIL OLUŞTURULUR?
+Herhangi List,Set gibi  Collection'lari  .stream() metodu ile, stream objesine ceviriyoruz ve bu islem ile
+collection'i Stream’ler ile çalışabilir hale getiriyoruz.
+
+
+Herhangi bir dizi stream.of() metodu yardımıyla Stream’ler ile çalışabilir hale gelir.
+Veya yeni bir Stream doğrudan oluşturulabilir.
+
+Stream.of() metoduyla direk bir stream oluşturalabilir.
+Integer tipinde de olabilir. Alternatif olarak elimizdeki diziyi direk listeye çevirebiliriz.
+En yaygın kullanım, var olan collection u stream a çevirmektir
+
+
+
+
+Stream api de pupeline de ara islemler lazy'dir. (Lazy tembel demektir)
+Cunku arkadan gelecek islemlerin durumu degisebileceginden dolayi. Agirdan aliyor
+
+Terminal islemleri eager'dir.Yazilmazsa calismaz ( Eager ac gözlu demektir)
+
+Stream kaynagi:collection,List,Set,Array,File...
+
+
+
+
+
+ARA ISLEMLER: (En yaygin)
+
+filter()        ==>Filtrele(collection'larin icindekileri opsiyonel olarak filtreliyor)->basta olmasi mantiklidir
+örn; .filter( (x) -> x>10)
+
+map()           ==> guncelle, gelistirme, ( bir diziyi veya collection'i guncellemeye yani modifiye etmeyi sagliyor.
+örn; dizimizdeki her elemanin 5 katini almak istiyorsunuz )
+
+sorted()        ==> sirala, ( verdiginiz collection'ini siraliyor )
+
+findfirst()     ==> ilk eleman (Birsey ariyorsunuz ilk buldugu yeri size söyluyor)
+
+skip()          ==> ilk 5 elamani alma gibi-atlama, (Bir collection'iniz var bunun icinde verileriniz var ilk 5 elemani kullanma gibi)
+
+dintinc()       ==> tekrarsiz urun, var olan benzerleri almama,
+
+limit()         ==> sinirlama, (sundan sonrasini al gibi)
+
+flatMap()==> birden fazla coll birlestirir (örn iki dizimiz var bunu tek bir dizi yapmak isterken flatMap ile birlestiriyoruz)
+
+
+
+
+
+TERMINAL ISLEMLERI: (Stream'i kapatan terminal operatordur)
+
+1)Terminal islemi Stream nesnesini alir ve tuketir.(eager)
+2)Sadece tek terminal islemi kullanilabilir.
+
+
+
+forEach()==> yazdirir, (verdiginiz sarta göre yazdirir. iterasyon yapar)
+
+Cok önemli!! reduce()==> kendi terminal islemi yapabiliriz ama lambda ifadesi, indirgeme,
+(reduce un icinde kendi terminal islemimizi yazabiliriz veya bir method referansi cagirabiliriz)
+
+    reduce ardisik ilerleyen islenler icin uygundur
+    reduce(1,(x,y) -> x*y)
+
+           1 ==> identifier (tanimlayici) yani baslangic degeri
+
+             (x,y) -> x*y ==> lambda ifadesi
+
+                reduce(1,(x , y) -> x*y)
+                          1   1 => 1
+                          1   2 => 2
+                          2   3 => 6
+                          6   4 => 24
+                         24   5 => 120
+                         *    6
+                         *    7
+
+
+
+collect()==> olusturulan degerleri yeni collection yapmak icin;Bir listeye saklamak icin,
+
+max()==> verinin maximum'unu döndurur.
+
+min()==> min deger,
+
+count()==> kac tane o veriden var
+
+
+
+
+          Collection'larimizi stream method;u ile Stream'e cevirmeyi ogrendik.
+
+          Collection : List,Map,HashMap vb..
+
+          Stream'e cevirdikten sonra Stream API kullanarak pipeLine'a sokuyorduk.
+
+          IntStream : Integer seklinde Stream olusturabiliriz. (IntStream= integer stream olusturan bir nesnedir)
+          LongStream, DoubleStream
+
+          Bunlarin ne artisi var ? Sayisal degerlerle islem yapacaksak isleri kolaylastiriyor.
+          Biz istersek Integer, Double, Long tipinde Stream'ler olusturabiliyoruz.
+
+
+IntStream method'lari;
+
+.of(-,-,-) ==> integer degerler olusturabilirsiniz
+
+.range(x,y) ==> methodu ile bir integer araligi  verebiliriz, verilen araliklarda bir Integer stream olusturabiliriz
+                x dahil y dahil degildir
+
+.rangeClosed(x,y) ==> methodu ile bir integer araligi  verebiliriz, verilen araliklarda bir Integer stream olusturabiliriz
+                      x ve y dahildir.
+
+
+
+
+COK ÖNEMLI!!!
+        .iterate(1, t->t+1).limit(n)   ==> ara islemdir (terminal degil!)
+
+                iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
+                Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+
+
+
+
+
+
+// Map : Stream'in transformasyon method'udur. Veriyi degistirir.
+// FlapMap : Nested olan Collection'lari dumuduz bir hale getiriyor, islenmesi kolay olsun diye.
+
+
+
+
