@@ -1,15 +1,15 @@
 
-BİR STREAM NASIL OLUŞTURULUR?
+BIR STREAM NASIL OLUSTURULUR?
 Herhangi List,Set gibi  Collection'lari  .stream() metodu ile, stream objesine ceviriyoruz ve bu islem ile
-collection'i Stream’ler ile çalışabilir hale getiriyoruz.
+collection'i Stream`ler ile calisabilir hale getiriyoruz.
 
 
-Herhangi bir dizi stream.of() metodu yardımıyla Stream’ler ile çalışabilir hale gelir.
-Veya yeni bir Stream doğrudan oluşturulabilir.
+Herhangi bir dizi stream.of() metodu yardimiyla Stream`ler ile calisabilir hale gelir.
+Veya yeni bir Stream dogrudan olusturulabilir.
 
-Stream.of() metoduyla direk bir stream oluşturalabilir.
-Integer tipinde de olabilir. Alternatif olarak elimizdeki diziyi direk listeye çevirebiliriz.
-En yaygın kullanım, var olan collection u stream a çevirmektir
+Stream.of() metoduyla direk bir stream olusturalabilir.
+Integer tipinde de olabilir. Alternatif olarak elimizdeki diziyi direk listeye cevirebiliriz.
+En yaygin kullanim, var olan collection u stream a cevirmektir
 
 
 
@@ -17,7 +17,7 @@ En yaygın kullanım, var olan collection u stream a çevirmektir
 Stream api de pupeline de ara islemler lazy'dir. (Lazy tembel demektir)
 Cunku arkadan gelecek islemlerin durumu degisebileceginden dolayi. Agirdan aliyor
 
-Terminal islemleri eager'dir.Yazilmazsa calismaz ( Eager ac gözlu demektir)
+Terminal islemleri eager'dir.Yazilmazsa calismaz ( Eager ac golu demektir)
 
 Stream kaynagi:collection,List,Set,Array,File...
 
@@ -28,14 +28,14 @@ Stream kaynagi:collection,List,Set,Array,File...
 ARA ISLEMLER: (En yaygin)
 
 filter()        ==>Filtrele(collection'larin icindekileri opsiyonel olarak filtreliyor)->basta olmasi mantiklidir
-örn; .filter( (x) -> x>10)
+orn; .filter( (x) -> x>10)
 
 map()           ==> guncelle, gelistirme, ( bir diziyi veya collection'i guncellemeye yani modifiye etmeyi sagliyor.
-örn; dizimizdeki her elemanin 5 katini almak istiyorsunuz )
+orn; dizimizdeki her elemanin 5 katini almak istiyorsunuz )
 
 sorted()        ==> sirala, ( verdiginiz collection'ini siraliyor )
 
-findfirst()     ==> ilk eleman (Birsey ariyorsunuz ilk buldugu yeri size söyluyor)
+findfirst()     ==> ilk eleman (Birsey ariyorsunuz ilk buldugu yeri size soyluyor)
 
 skip()          ==> ilk 5 elamani alma gibi-atlama, (Bir collection'iniz var bunun icinde verileriniz var ilk 5 elemani kullanma gibi)
 
@@ -43,7 +43,7 @@ dintinc()       ==> tekrarsiz urun, var olan benzerleri almama,
 
 limit()         ==> sinirlama, (sundan sonrasini al gibi)
 
-flatMap()==> birden fazla coll birlestirir (örn iki dizimiz var bunu tek bir dizi yapmak isterken flatMap ile birlestiriyoruz)
+flatMap()==> birden fazla coll birlestirir (orn iki dizimiz var bunu tek bir dizi yapmak isterken flatMap ile birlestiriyoruz)
 
 
 
@@ -56,9 +56,9 @@ TERMINAL ISLEMLERI: (Stream'i kapatan terminal operatordur)
 
 
 
-forEach()==> yazdirir, (verdiginiz sarta göre yazdirir. iterasyon yapar)
+forEach()==> yazdirir, (verdiginiz sarta gore yazdirir. iterasyon yapar)
 
-Cok önemli!! reduce()==> kendi terminal islemi yapabiliriz ama lambda ifadesi, indirgeme,
+Cok onemli!! reduce()==> kendi terminal islemi yapabiliriz ama lambda ifadesi, indirgeme,
 (reduce un icinde kendi terminal islemimizi yazabiliriz veya bir method referansi cagirabiliriz)
 
     reduce ardisik ilerleyen islenler icin uygundur
@@ -81,7 +81,7 @@ Cok önemli!! reduce()==> kendi terminal islemi yapabiliriz ama lambda ifadesi, 
 
 collect()==> olusturulan degerleri yeni collection yapmak icin;Bir listeye saklamak icin,
 
-max()==> verinin maximum'unu döndurur.
+max()==> verinin maximum'unu dondurur.
 
 min()==> min deger,
 
@@ -116,11 +116,11 @@ IntStream method'lari;
 
 
 
-COK ÖNEMLI!!!
+COK ONEMLI!!!
         .iterate(1, t->t+1).limit(n)   ==> ara islemdir (terminal degil!)
 
-                iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
-                Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+                iterate metodu aslinda dongulere benzer. Baslangici ve artim miktari parametre olarak verilebilir.
+                Dongunun bitecegi sayi ise limit() metodu ile gosterilir.
 
 
 
